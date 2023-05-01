@@ -1,0 +1,43 @@
+@import 'global';
+
+body {
+  background-color: map-get($neutral-colors, off_white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+}
+
+.card {
+  width: 300px;
+  background: map-get($neutral-colors, white);
+  border-radius: 5px;
+  border-bottom-right-radius: 90px;
+  padding: 10px;
+}
+
+input {
+  width: 3.75rem;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution {
+  a {
+    color: map-get($primary-colors, attribution_color);
+  }
+}
+
+.input-area {
+  display: flex;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
