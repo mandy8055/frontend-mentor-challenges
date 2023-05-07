@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch css/styles.scss dist/output.css"
+    "sass": "sass --style=compressed --watch scss/styles.scss dist/output.css",
+    "live-serve": "live-server --port=3000 --watch=index.html,dist,script",
+    "dev": "npm-run-all -p sass live-serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "live-server": "^1.2.2",
     "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
