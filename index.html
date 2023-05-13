@@ -10,59 +10,30 @@
       sizes="32x32"
       href="./assets/img/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="./dist/output.css" />
+    <link rel="stylesheet" href="dist/output.css" />
     <title>Frontend Mentor | Age calculator app</title>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      defer
-    ></script>
   </head>
   <body>
     <div class="card">
       <div class="input-area">
-        <div id="day-div" class="inputs">
+        <div class="inputs">
           <label for="day">DAY</label>
-          <input
-            type="number"
-            id="day"
-            name="day"
-            placeholder="DD"
-            tabindex="0"
-          />
+          <input type="text" id="day" name="day" placeholder="DD" />
         </div>
-        <div id="month-div" class="inputs">
+        <div class="inputs">
           <label for="month">MONTH</label>
-          <input
-            type="number"
-            id="month"
-            name="month"
-            placeholder="MM"
-            tabindex="0"
-          />
+          <input type="text" id="month" name="month" placeholder="MM" />
         </div>
-        <div id="year-div" class="inputs">
+        <div class="inputs">
           <label for="year">YEAR</label>
-          <input
-            type="number"
-            id="year"
-            name="year"
-            placeholder="YYYY"
-            tabindex="0"
-          />
+          <input type="text" id="year" name="year" placeholder="YYYY" />
         </div>
       </div>
-      <div class="button-hr-container">
-        <div class="horizontal-rule"></div>
-        <button id="submit-btn" class="circle-btn">
-          <img src="./assets/img/icon-arrow.svg" alt="icon-btn" />
-        </button>
-      </div>
+      <hr />
       <div class="display-section">
-        <div class="display"><span id="years-result">--</span> years</div>
-        <div class="display"><span id="month-result">--</span> months</div>
-        <div class="display"><span id="days-result">--</span> days</div>
+        <div class="display">-- years</div>
+        <div class="display">-- months</div>
+        <div class="display">-- days</div>
       </div>
     </div>
     <div class="attribution">
@@ -71,6 +42,5 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">mandy8055</a>.
     </div>
-    <script defer src="./script/index.js"></script>
   </body>
 </html>
