@@ -9,7 +9,7 @@
     "dev": "npm-run-all -p sass live-serve"
   },
   "keywords": [],
-  "author": "",
+  "author": "mandy8055",
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.2",

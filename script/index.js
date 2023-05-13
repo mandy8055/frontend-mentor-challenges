@@ -6,16 +6,16 @@ const yearField = document.getElementById('year');
 // Submit Button
 const submitBtn = document.getElementById('submit-btn');
 
-// Result Span
+// Result Spans
 const yearsResult = document.getElementById('years-result');
 const monthsResult = document.getElementById('month-result');
 const daysResult = document.getElementById('days-result');
+const yearsText = document.getElementById('years-text');
+const monthsText = document.getElementById('months-text');
+const daysText = document.getElementById('days-text');
 
 function calculateDOB() {
-  // Reset age in result spans
-  yearsResult.textContent = '--';
-  monthsResult.textContent = '--';
-  daysResult.textContent = '--';
+  resetFields();
   if (!validateInputs(dayField.value, monthField.value, yearField.value))
     return;
   const formatter = `${yearField.value}-${monthField.value}-${dayField.value}`;
@@ -25,13 +25,26 @@ function calculateDOB() {
   const duration = moment.duration(diff);
 
   // Set age in result spans
-  yearsResult.textContent = duration.years();
-  monthsResult.textContent = duration.months();
-  daysResult.textContent = duration.days();
+  displayResult(yearsResult, yearsText, duration.years(), 'year');
+  displayResult(monthsResult, monthsText, duration.months(), 'month');
+  displayResult(daysResult, daysText, duration.days(), 'day');
+}
+
+function displayResult(node1, node2, duration, trigger) {
+  node1.textContent = duration;
+  node2.textContent = duration === 1 ? trigger : `${trigger}s`;
+}
+
+function resetFields() {
+  yearsResult.textContent = '--';
+  yearsText.textContent = 'years';
+  monthsResult.textContent = '--';
+  monthsText.textContent = 'months';
+  daysResult.textContent = '--';
+  daysText.textContent = 'days';
 }
 
 function validateInputs(day, month, year) {
-  console.log({ day, month, year });
   const maxDaysInMonth = moment()
     .set({ month: month - 1 })
     .daysInMonth();
@@ -62,14 +75,22 @@ function validateInputs(day, month, year) {
   }
 
   // check year
+  const dateToBeChecked = moment().add({
+    years: year - moment().year(),
+    months: month - (moment().month() + 1),
+    days: day - moment().date(),
+  });
   if (year === '') {
     displayError('This field is required', 'year');
     validYear = false;
   } else if (
     ((!validDay || !validMonth) && year > moment().year()) ||
-    moment([year, month, day]).isAfter(moment(), 'day')
+    dateToBeChecked.isAfter(moment(), 'day')
   ) {
     displayError('Must be in the past', 'year');
+    validYear = false;
+  } else if (year.toString().length < 4) {
+    displayError('Year should follow YYYY format', 'year');
     validYear = false;
   } else {
     removeError('year');
@@ -102,6 +123,7 @@ function displayError(errorMessage, trigger) {
 function removeError(trigger) {
   const input = document.getElementById(trigger);
   const inputContainer = input.closest('.inputs');
+  if (!input.classList.contains('error')) return;
 
   // remove error class from input and label
   input.classList.remove('error');
@@ -114,4 +136,5 @@ function removeError(trigger) {
   }
 }
 
+// Event handler
 submitBtn.addEventListener('click', calculateDOB);
