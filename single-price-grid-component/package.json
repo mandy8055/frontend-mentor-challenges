@@ -1,15 +1,15 @@
 {
-  "name": "interactive-rating-component",
+  "name": "boilerplate",
   "version": "1.0.0",
-  "description": "![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "sass": "sass --style=compressed --watch scss/styles.scss public/output.css",
-    "live-serve": "live-server --port=3000 --open=public/index.html --watch=public",
+    "live-serve": "live-server --port=3000 --open=public/index.html --watch=public --no-css-inject",
     "dev": "npm-run-all -p sass live-serve"
   },
   "keywords": [],
-  "author": "",
+  "author": "mandy8055",
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.2",

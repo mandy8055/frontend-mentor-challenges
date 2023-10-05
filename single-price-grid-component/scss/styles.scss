@@ -1,0 +1,120 @@
+@import 'global';
+
+$light-gray-map: map-get($neutral-colors, light-gray);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $light-gray-map;
+  font-family: 'Karla', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    height: auto;
+  }
+}
+
+.card {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  width: 60%;
+  border-radius: 2em;
+  -webkit-box-shadow: -2px -2px 17px 6px rgba(186, 180, 186, 1);
+  -moz-box-shadow: -2px -2px 17px 6px rgba(186, 180, 186, 1);
+  box-shadow: -2px -2px 17px 6px rgba(186, 180, 186, 1);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 80%;
+  }
+}
+
+.heading {
+  color: whitesmoke;
+  font-weight: 700;
+  padding-bottom: 1em;
+}
+
+.pricing {
+  display: flex;
+  gap: 1em;
+}
+
+#grid-1 {
+  grid-column: 1 / span 2;
+  background-color: whitesmoke;
+  padding: 1.5em;
+  @media (max-width: 768px) {
+    grid-column: 1;
+  }
+}
+
+#grid-1 .heading {
+  color: map-get($primary-colors, cyan-color);
+  padding-bottom: 1em;
+  font-weight: 700;
+}
+
+#grid-1 p {
+  color: map-get($neutral-colors, grayish-blue);
+}
+
+#grid-1 .sub-heading {
+  color: map-get($primary-colors, bright-yellow);
+  font-weight: 700;
+}
+
+#grid-2 {
+  background-color: map-get($primary-colors, cyan-color);
+  padding: 1.5em;
+  align-self: center;
+}
+
+#grid-2 span:first-of-type {
+  color: white;
+  font-size: 2rem;
+}
+
+#grid-2 span:nth-of-type(2) {
+  color: rgb(225, 223, 223);
+  font-size: 0.8rem;
+  align-self: center;
+}
+
+#grid-2 p {
+  color: $light-gray-map;
+}
+
+button {
+  padding: 1em;
+  width: 100%;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+  color: $light-gray-map;
+  font-weight: bold;
+  background-color: map-get($primary-colors, bright-yellow);
+  -webkit-box-shadow: -2px 0px 17px -6px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -2px 0px 17px -6px rgba(0, 0, 0, 1);
+  box-shadow: -2px 0px 17px -6px rgba(0, 0, 0, 1);
+}
+
+#grid-3 {
+  background-color: map-get($primary-colors, light-cyan-color);
+  padding: 1.5em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: $light-gray-map;
+}
