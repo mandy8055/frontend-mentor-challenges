@@ -23,11 +23,9 @@ body {
 
 .card {
   display: grid;
-  justify-content: center;
-  align-content: center;
+  width: 45%;
+  border-radius: 0.5em;
   grid-template-columns: 1fr 1fr;
-  width: 60%;
-  border-radius: 2em;
   -webkit-box-shadow: -2px -2px 17px 6px rgba(186, 180, 186, 1);
   -moz-box-shadow: -2px -2px 17px 6px rgba(186, 180, 186, 1);
   box-shadow: -2px -2px 17px 6px rgba(186, 180, 186, 1);
@@ -52,6 +50,7 @@ body {
   grid-column: 1 / span 2;
   background-color: whitesmoke;
   padding: 1.5em;
+  border-radius: 0.5em 0.5em 0 0;
   @media (max-width: 768px) {
     grid-column: 1;
   }
@@ -75,7 +74,10 @@ body {
 #grid-2 {
   background-color: map-get($primary-colors, cyan-color);
   padding: 1.5em;
-  align-self: center;
+  border-radius: 0 0 0 0.5em;
+}
+#grid-3 {
+  border-radius: 0 0 0.5em 0;
 }
 
 #grid-2 span:first-of-type {
